@@ -4,14 +4,7 @@ import User from '../components/pages/user'
 import Privacy from '../components/pages/privacy'
 import Done from '../components/pages/done'
 import NotFound from '../components/pages/not-found'
-
-export const Paths = {
-  ROOT: '/',
-  USER: '/user',
-  PRIVACY: '/privacy',
-  DONE: '/done',
-  ANY: '*',
-}
+import { Paths } from './paths'
 
 const routes = {
   [Paths.ROOT]: () => <Redirect />,

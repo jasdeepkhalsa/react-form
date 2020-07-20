@@ -7,6 +7,10 @@ const Component = (props: any) => {
     if (!visible && props.visible) {
       setVisible(true)
     }
+
+    if (visible && !props.visible) {
+      setVisible(false)
+    }
   }, [visible, props.visible])
 
   return visible ? (
