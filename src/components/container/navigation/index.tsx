@@ -1,9 +1,11 @@
 import React from 'react'
+import { Paths } from '../../../utils/paths'
+import { Icons } from '../../../utils/icons'
 
 const pages = [
-  { title: 'Basic Info', icon: 'fas fa-user', url: '/user' },
-  { title: 'Privacy Settings', icon: 'fas fa-envelope', url: '/privacy' },
-  { title: 'Done', icon: 'fas fa-check', url: '/done' },
+  { title: 'Basic Info', icon: Icons.USER, url: Paths.USER },
+  { title: 'Privacy Settings', icon: Icons.ENVELOPE, url: Paths.PRIVACY },
+  { title: 'Done', icon: Icons.CHECK, url: Paths.DONE },
 ]
 
 const Component = (props: any) => (

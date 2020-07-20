@@ -7,7 +7,7 @@ const Component = (props: any) => {
     if (!visible && props.visible) {
       setVisible(true)
     }
-  }, [props.visible])
+  }, [visible, props.visible])
 
   return visible ? (
     <article className="message is-danger">

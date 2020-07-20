@@ -1,9 +1,10 @@
 import React from 'react'
+import Base from '../base'
 import { navigate } from 'hookrouter'
 
 const Component = () => {
   return (
-    <>
+    <Base>
       <div className="field">
         <label className="checkbox">
           <input type="checkbox" required checked />
@@ -37,7 +38,7 @@ const Component = () => {
           </button>
         </div>
       </div>
-    </>
+    </Base>
   )
 }
 
