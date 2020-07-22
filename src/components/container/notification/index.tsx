@@ -1,29 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-const Component = (props: any) => {
-  const [visible, setVisible] = useState(false)
+interface Props {
+  visible: boolean
+  messages: string[] | null
+}
 
-  useEffect(() => {
-    if (!visible && props.visible) {
-      setVisible(true)
-    }
-
-    if (visible && !props.visible) {
-      setVisible(false)
-    }
-  }, [visible, props.visible])
-
-  return visible ? (
+const Component = (props: Props) => {
+  return props?.visible ? (
     <article className="message is-danger">
       <div className="message-header">
-        <p>{props.title}</p>
-        <button
-          className="delete"
-          aria-label="delete"
-          onClick={() => setVisible(false)}
-        ></button>
+        <p>Please correct the following errors:</p>
       </div>
-      <div className="message-body">{props.message}</div>
+      <div className="message-body">
+        {props?.messages?.map((message: string, index: number) => (
+          <p key={index}>{message}</p>
+        ))}
+      </div>
     </article>
   ) : null
 }

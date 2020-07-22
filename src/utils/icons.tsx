@@ -1,4 +1,4 @@
-export const Icons = {
+const Icons = {
   USER: 'fas fa-user',
   ENVELOPE: 'fas fa-envelope',
   CHECK: 'fas fa-check',

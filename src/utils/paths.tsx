@@ -1,4 +1,4 @@
-export const Paths = {
+const Paths = {
   ROOT: '/',
   USER: '/user',
   PRIVACY: '/privacy',

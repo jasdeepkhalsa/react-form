@@ -1,38 +1,54 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Base from '../base'
 import Field from '../../container/field'
-import { navigate } from 'hookrouter'
-import { Store } from '../../../reducers'
-import Joi from '@hapi/joi'
+import { Store } from '../../../data'
+import { userSchema, SchemaKeys } from '../../../data/schema'
+import OnChangeDispatch from '../../../utils/onChangeDispatch'
+import Paths from '../../../utils/paths'
+import OnSubmitValidate from '../../../utils/onSubmitValidate'
 
 const Component = () => {
-  const store: any = useContext(Store)
+  const store: typeof Store = useContext(Store)
+  const [errors, setError] = useState<Array<string>>([])
 
   return (
-    <Base>
+    <Base
+      errorMessages={errors.length ? errors : null}
+      errorVisible={errors.length ? true : false}
+    >
       <Field label="First Name" required={true}>
         <input
           className="input"
           type="text"
           required
+          autoComplete="given-name"
           onChange={(event) => {
-            console.log('event', event.target.value)
-            console.log('store state', store.state)
-            store.dispatch({ firstName: event.target.value })
+            OnChangeDispatch(event, store, SchemaKeys.FIRST_NAME)
           }}
         />
       </Field>
 
-      {store.state}
-
       <Field label="Last Name" required={true}>
-        <input className="input" type="text" required />
+        <input
+          className="input"
+          type="text"
+          autoComplete="family-name"
+          required
+          onChange={(event) => {
+            OnChangeDispatch(event, store, SchemaKeys.LAST_NAME)
+          }}
+        />
       </Field>
 
       <Field label="Profession">
         <div className="select">
-          <select required>
-            <option disabled selected>
+          <select
+            defaultValue="default"
+            onChange={(event) => {
+              OnChangeDispatch(event, store, SchemaKeys.PROFESSION)
+            }}
+          >
+            <option disabled value="default">
               Select role
             </option>
             <option>Accountancy, banking and finance</option>
@@ -63,18 +79,43 @@ const Component = () => {
       </Field>
 
       <Field label="Email" required={true}>
-        <input className="input" type="email" required />
+        <input
+          className="input"
+          type="email"
+          autoComplete="email"
+          required
+          onChange={(event) => {
+            OnChangeDispatch(event, store, SchemaKeys.EMAIL)
+          }}
+        />
       </Field>
 
       <Field label="Password" required={true}>
-        <input className="input" type="password" required />
+        <input
+          className="input"
+          type="password"
+          name="password"
+          autoComplete="current-password"
+          required
+          onChange={(event) => {
+            OnChangeDispatch(event, store, SchemaKeys.PASSWORD)
+          }}
+        />
       </Field>
 
       <div className="field is-grouped">
         <div className="control">
           <button
             className="button is-link"
-            onClick={() => navigate('/privacy')}
+            onClick={(event) =>
+              OnSubmitValidate(
+                event,
+                store,
+                userSchema,
+                setError,
+                Paths.PRIVACY
+              )
+            }
           >
             Next
           </button>

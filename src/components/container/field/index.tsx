@@ -1,6 +1,12 @@
 import React from 'react'
 
-const Component = (props: any) => (
+interface Props {
+  label: string
+  required?: boolean
+  children: JSX.Element | JSX.Element[]
+}
+
+const Component = (props: Props) => (
   <div className="field">
     <label className="label">
       {props.label}
