@@ -5,7 +5,7 @@ import Done from '../components/pages/done'
 import NotFound from '../components/pages/not-found'
 import Paths from './paths'
 
-const routes = {
+const Routes = {
   [Paths.USER]: () => <User />,
   [Paths.PRIVACY]: () => <Privacy />,
   [Paths.DONE]: () => <Done />,
@@ -13,4 +13,4 @@ const routes = {
   [Paths.ANY]: () => <NotFound />,
 }
 
-export default routes
+export default Routes

@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react'
 import { useRoutes, useRedirect } from 'hookrouter'
-import Routes from './utils/routes'
-import Paths from './utils/paths'
+import Routes from './config/routes'
+import Paths from './config/paths'
 import { initialState, reducer, Store } from './data'
 
 const App = () => {

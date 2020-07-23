@@ -4,7 +4,7 @@ import Field from '../../container/field'
 import { Store } from '../../../data'
 import { userSchema, SchemaKeys } from '../../../data/schema'
 import OnChangeDispatch from '../../../utils/onChangeDispatch'
-import Paths from '../../../utils/paths'
+import Paths from '../../../config/paths'
 import OnSubmitValidate from '../../../utils/onSubmitValidate'
 
 const Component = () => {

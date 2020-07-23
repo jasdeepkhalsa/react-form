@@ -1,5 +1,5 @@
-import Paths from '../utils/paths'
-import Icons from '../utils/icons'
+import Paths from './paths'
+import Icons from './icons'
 
 interface Page {
   title: string

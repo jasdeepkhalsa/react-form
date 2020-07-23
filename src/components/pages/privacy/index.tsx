@@ -4,7 +4,7 @@ import FieldCheck from '../../container/field-check'
 import { Store } from '../../../data'
 import { userSchema, privacySchema, SchemaKeys } from '../../../data/schema'
 import { dispatch } from '../../../utils/onChangeDispatch'
-import Paths from '../../../utils/paths'
+import Paths from '../../../config/paths'
 import OnSubmitValidate from '../../../utils/onSubmitValidate'
 import { navigate } from 'hookrouter'
 

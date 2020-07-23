@@ -5,11 +5,11 @@
 - Responsive across desktop, tablet & mobile thanks to bulma.io
 - Internally uses React with hooks for state management & routing (with [hookrouter](https://github.com/Paratron/hookrouter))
 - Data validation with [Joi](https://hapi.dev/module/joi/) schemas
-- End-to-end tested with [Cypress](https://www.cypress.io/)
+- End-to-end tested with [Cypress](https://www.cypress.io/) and unit tests in Jest
 
 ## Pre-requisites
 
-You will need to have access to the command-line, for Linux/Mac a Terminal or on Windows it will be a command prompt (`cmd`)
+You will need to have access to the command-line, for Linux/Mac a Terminal or on Windows it will be a command prompt (`cmd`).
 
 Please ensure you have the following installed and available on the command-line:
 
@@ -18,9 +18,9 @@ Please ensure you have the following installed and available on the command-line
 - `yarn` - version 1.22 or later
 - `git` (optional) - version 2 or later
 
-You can find the exact version by adding the flag `--version` to any of these commands e.g. `node --version`.
+You can find the exact version by adding the `--version` flag to any of these commands e.g. `node --version`.
 
-If you need to upgrade `node` or `npm` of these tools, installing [Node Version Manager](https://github.com/nvm-sh/nvm) (`nvm`) is recommended for.
+If you need to upgrade the version of `node` or `npm`, installing [Node Version Manager](https://github.com/nvm-sh/nvm) (`nvm`) is the recommended way.
 
 Finally, the latest version of the [Chrome browser](https://www.google.co.uk/chrome/) is recommended for viewing and testing this app.
 
@@ -42,11 +42,13 @@ Make sure you are in the root of your application for all the following steps.
 
 Do this by using `cd` (Mac, Linux, PowerShell) or `dir` (Windows) to navigate on the command line to where you have placed your "react-form" folder.
 
-Then run:
+Then simply run:
 
 ```bash
 $ yarn
 ```
+
+All the dependencies for the project will then be installed.
 
 ## Running the app
 
@@ -72,17 +74,23 @@ $ yarn test
 
 The first time you do this Cypress will most likely need to install itself, so please be patient. Subsequent load times should be faster.
 
-Once installed, the Cypress app should pop up a window showing a list of integration tests.
+Once installed, the Cypress app should pop up a window showing a list of integration tests it can run.
 
-Click the button `Run all specs`. This should start to run the tests by default in the `Chrome` browser.
+Click the button `Run all specs` to run the tests in the `Chrome` browser by default.
 
-If you're having difficulty getting this to work, try selecting `Electron` instead as the browser to run the tests in.
+If you're having difficulty getting the tests to run with Chrome, try selecting `Electron` instead as the browser to run the tests in.
 
 Alternatively, use the following command to run the tests headlessly in Electron (which comes shipped with Cypress):
 
 ```bash
 $ yarn run test:ci
 ```
+
+This output should be:
+
+|     |                    |       | Tests | Passing |
+| --- | ------------------ | ----- | ----- | ------- |
+| ✔   | All specs passed ! | 00:08 | 4     | 4       |
 
 ### Jest - Unit Tests
 
@@ -92,9 +100,19 @@ The unit tests can be run with:
 $ yarn run test:unit
 ```
 
+This output should be:
+
+```bash
+Test Suites: 1 passed, 1 total
+Tests:       15 passed, 15 total
+Snapshots:   0 total
+Time:        3.224s
+Ran all test suites.
+```
+
 ## Future Roadmap / TODO
 
 - **Back journeys** - This would be implemented by using the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API) to first move backward through history and then detecting whether data exists in the store for the particular fields on the page, mapping the fields/form controls to the data, and then repopulating the fields
 - **Guarded routes** - Stopping the user navigating away from the form before completing it could be achieved with an [interceptor](https://github.com/Paratron/hookrouter/blob/master/src-docs/pages/en/03_navigation.md#controlled-interceptors)
 - **Adding more pages** - The first point of call would be to have a look inside the `src/config` folder which lists several key configuration files powering the app. Next, would be to create a new page component within the `src/components/pages` folder, remembering to extend the `base` container component (see other pages for an example)
-- **Adding more tests** - This can be done by simply adding test files within the `cypress/integration` folder. Jest unit tests may also be added for some of the `src/data` and `src/utils` functions
+- **Adding more tests** - This can be done by simply adding test files within the `cypress/integration` folder. Jest unit tests will also be added for some of the `src/data` and `src/utils` functions
