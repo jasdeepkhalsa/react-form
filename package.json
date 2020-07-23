@@ -19,6 +19,7 @@
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "bulma": "^0.9.0",
+    "cypress": "^4.11.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "typescript": "^3.9.7"
@@ -26,7 +27,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "cypress open --config-file src/config/cypress.json",
+    "test:ci": "cypress run --headless --config-file src/config/cypress.json",
+    "test:unit": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "format": "yarn prettier --write ."
   },

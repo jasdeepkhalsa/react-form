@@ -1,6 +1,6 @@
 import React from 'react'
-import Notification from '../../container/notification'
-import Navigation from '../../container/navigation'
+import Notification from '../notification'
+import Navigation from '../navigation'
 import { usePath } from 'hookrouter'
 
 interface Props {

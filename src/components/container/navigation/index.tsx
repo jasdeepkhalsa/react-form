@@ -1,12 +1,5 @@
 import React from 'react'
-import Paths from '../../../utils/paths'
-import Icons from '../../../utils/icons'
-
-const pages = [
-  { title: 'Basic Info', icon: Icons.USER, url: Paths.USER },
-  { title: 'Privacy Settings', icon: Icons.ENVELOPE, url: Paths.PRIVACY },
-  { title: 'Done', icon: Icons.CHECK, url: Paths.DONE },
-]
+import Pages from '../../../config/pages'
 
 interface Props {
   url: string
@@ -15,7 +8,7 @@ interface Props {
 const Component = (props: Props) => (
   <div className="tabs is-toggle is-toggle-rounded is-fullwidth">
     <ul>
-      {pages.map((page, index) => {
+      {Pages.map((page, index) => {
         return (
           <li className={page.url === props.url ? 'is-active' : ''} key={index}>
             {/* eslint-disable-next-line */}

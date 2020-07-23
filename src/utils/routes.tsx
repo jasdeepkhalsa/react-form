@@ -9,6 +9,7 @@ const routes = {
   [Paths.USER]: () => <User />,
   [Paths.PRIVACY]: () => <Privacy />,
   [Paths.DONE]: () => <Done />,
+  // Always fallback to a 404 page
   [Paths.ANY]: () => <NotFound />,
 }
 

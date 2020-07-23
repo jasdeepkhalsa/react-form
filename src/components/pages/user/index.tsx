@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import Base from '../base'
+import Base from '../../container/base'
 import Field from '../../container/field'
 import { Store } from '../../../data'
 import { userSchema, SchemaKeys } from '../../../data/schema'
@@ -13,12 +13,14 @@ const Component = () => {
 
   return (
     <Base
+      // Set a bunch of defaults for error messages
       errorMessages={errors.length ? errors : null}
       errorVisible={errors.length ? true : false}
     >
       <Field label="First Name" required={true}>
         <input
           className="input"
+          name={SchemaKeys.FIRST_NAME}
           type="text"
           required
           autoComplete="given-name"
@@ -31,6 +33,7 @@ const Component = () => {
       <Field label="Last Name" required={true}>
         <input
           className="input"
+          name={SchemaKeys.LAST_NAME}
           type="text"
           autoComplete="family-name"
           required
@@ -44,6 +47,7 @@ const Component = () => {
         <div className="select">
           <select
             defaultValue="default"
+            name={SchemaKeys.PROFESSION}
             onChange={(event) => {
               OnChangeDispatch(event, store, SchemaKeys.PROFESSION)
             }}
@@ -81,6 +85,7 @@ const Component = () => {
       <Field label="Email" required={true}>
         <input
           className="input"
+          name={SchemaKeys.EMAIL}
           type="email"
           autoComplete="email"
           required
@@ -93,8 +98,8 @@ const Component = () => {
       <Field label="Password" required={true}>
         <input
           className="input"
+          name={SchemaKeys.PASSWORD}
           type="password"
-          name="password"
           autoComplete="current-password"
           required
           onChange={(event) => {
@@ -107,6 +112,7 @@ const Component = () => {
         <div className="control">
           <button
             className="button is-link"
+            name="next"
             onClick={(event) =>
               OnSubmitValidate(
                 event,

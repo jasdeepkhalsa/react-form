@@ -7,7 +7,7 @@ interface Props {
 
 const Component = (props: Props) => {
   return props?.visible ? (
-    <article className="message is-danger">
+    <article className="error message is-danger">
       <div className="message-header">
         <p>Please correct the following errors:</p>
       </div>
