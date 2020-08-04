@@ -62,7 +62,7 @@ const Component = () => {
           }}
         />
         <span className="ml-2 is-size-5">
-          Receive updates about this Tray.io product by email
+          Receive updates about this product by email
         </span>
       </FieldCheck>
 
@@ -76,8 +76,7 @@ const Component = () => {
           }}
         />
         <span className="ml-2 is-size-5">
-          Receive updates about other products created by the Tray.io team by
-          email
+          Receive updates about other products created by the team by email
         </span>
       </FieldCheck>
 
